@@ -1,0 +1,18 @@
+version: '3'
+services:
+  redis:
+    image: "redis:5.0.5-alpine"
+    ports:
+      - "6379:6379"
+  mongo:
+    image: "mongo:4.0.10-xenial"
+    ports:
+      - "27017:27017"
+  crawler:
+    build: .
+    environment:
+      REDIS: "redis://redis:6379"
+      MONGO: "mongodb://mongo:27017/crawler"
+    links:
+      - mongo
+      - redis
