@@ -9,3 +9,7 @@ node >= 10.0.0 and Redis and Mongo >= 4.0
 npm install
 npm start
 ```
+## using docker
+```js
+docker-compose up
+```
